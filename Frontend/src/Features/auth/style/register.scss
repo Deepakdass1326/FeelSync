@@ -1,0 +1,180 @@
+// ─── Variables ───────────────────────────────────────
+$bg:          #0d0d0d;
+$glass-bg:    rgba(255, 255, 255, 0.05);
+$glass-border:rgba(255, 255, 255, 0.12);
+$input-bg:    rgba(255, 255, 255, 0.07);
+$input-border:rgba(255, 255, 255, 0.1);
+$accent:      #ff2d6b;
+$accent-2:    #ff5733;
+$white:       #ffffff;
+$muted:       rgba(255, 255, 255, 0.45);
+$label-color: rgba(255, 255, 255, 0.75);
+$radius:      10px;
+
+// ─── Wrapper ─────────────────────────────────────────
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+// ─── Orbs ────────────────────────────────────────────
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  pointer-events: none;
+
+  &--pink {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #ff4d8d, #ff6b35);
+    top: -70px;
+    right: 60px;
+  }
+
+  &--purple {
+    width: 270px;
+    height: 270px;
+    background: radial-gradient(circle, #a020f0, #6a0dad);
+    bottom: 50px;
+    left: 60px;
+  }
+}
+
+// ─── Glass Card ──────────────────────────────────────
+.card {
+  background: $glass-bg;
+  border: 1px solid $glass-border;
+  border-radius: 20px;
+  padding: 44px 38px;
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+
+  &__title {
+    color: $white;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  &__subtitle {
+    color: $muted;
+    font-size: 13px;
+    margin-bottom: 30px;
+  }
+}
+
+// ─── FormGroup Field ─────────────────────────────────
+.field {
+  margin-bottom: 18px;
+
+  &__label {
+    display: block;
+    color: $label-color;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 14px;
+    background: $input-bg;
+    border: 1px solid $input-border;
+    border-radius: $radius;
+    color: $white;
+    font-size: 14px;
+    outline: none;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.2s, background 0.2s;
+
+    &::placeholder { color: rgba(255, 255, 255, 0.25); }
+
+    &:focus {
+      border-color: $accent;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// ─── Row ─────────────────────────────────────────────
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 24px;
+}
+
+// ─── Remember ────────────────────────────────────────
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $muted;
+  font-size: 13px;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    accent-color: $accent;
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// ─── Forgot ──────────────────────────────────────────
+.forgot {
+  color: $muted;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover { color: $accent; }
+}
+
+// ─── Button ──────────────────────────────────────────
+.btn {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px;
+  background: linear-gradient(90deg, $accent, $accent-2);
+  border: none;
+  border-radius: $radius;
+  color: $white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+  transition: opacity 0.2s, transform 0.1s;
+
+  &:hover  { opacity: 0.88; }
+  &:active { transform: scale(0.98); }
+}
+
+// ─── Bottom link ─────────────────────────────────────
+.signup,
+.login {
+  text-align: center;
+  margin-top: 20px;
+  color: $muted;
+  font-size: 13px;
+
+  a {
+    color: $accent;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover { text-decoration: underline; }
+  }
+}
