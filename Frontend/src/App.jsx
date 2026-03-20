@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router"
 import { router } from "./app.routes"
 import "./Features/shared/styles/GlobalStyle.scss"
-
+import { AuthProvider } from "./Features/auth/auth.context"
 
 
 
@@ -9,7 +9,10 @@ function App() {
 
 
   return (
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+
   )
 }
 
